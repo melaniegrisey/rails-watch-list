@@ -25,22 +25,25 @@ movies = JSON.parse(movie_serialized)["results"]
 movies.each do |movie|
   Movie.create(title: movie["title"],
   overview: movie["overview"],
-  poster_url: "http://tmdb.lewagon.com/movie/top_rated#{movie["backdrop_path"]}",
+  poster_url: "https://image.tmdb.org/t/p/original/#{movie["backdrop_path"]}",
   rating: movie["vote_average"]
   )
 end
 
 # url = 'http://tmdb.lewagon.com/movie/top_rated'
 # 10.times do |p|
-#   puts "Inserting 20 new movies from page #{p + 1}..."
+#   puts "Importing 20 new movies from page #{p + 1}..."
 #   movie_serialized = URI.open("#{url}?page=#{p + 1}").read
 #   movies = JSON.parse(movie_serialized)["results"]
 #   movies.each do |movie|
-#     Movie.create(title: movie["title"],
-#     overview: movie["overview"],
-#     poster_url: "http://tmdb.lewagon.com/movie/top_rated#{movie["backdrop_path"]}",
-#     rating: movie["vote_average"]
+#     puts "Creating #{movie['title']}"
+#     Movie.create(
+#       title: movie["title"],
+#       overview: movie["overview"],
+#       rating: movie["vote_average"],
+#       poster_url: "https://image.tmdb.org/t/p/original/#{movie["backdrop_path"]}"
 #     )
 #   end
+# end 
 
-puts 'Finished!'
+puts "Movies created!"
