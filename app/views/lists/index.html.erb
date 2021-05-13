@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="justify-content-center">
+    <h1>Save any kind of movies</h1>
+    <div>
+    <h2>My lists</h2>
+    <ul>
+      <% @lists.each do |list| %>
+        <li><%= link_to list.name, list_path(list.id) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <%= link_to new_list_path do %>
+    <i class="fa fa-plus"></i> Create a movie list
+  <% end %>
+</div>

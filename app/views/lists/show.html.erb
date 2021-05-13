@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="justify-content-center">
+    <h1><%= @list.name %></h1>
+
+    <%# <ol>
+      <% @movies.each do |movie| %>
+        <%# <li>
+          <%= movie.title %>
+          <%# <%= movie.overview %>
+          <%# <%= movie.poster_url %>
+          <%# <%= movie.rating %>
+        <%# </li>
+      <% end %>
+    <%# </ol>
+  </div> %>
+  <%= link_to lists_path do %>
+    <i class="fa fa-history"></i> Back to my lists
+  <% end %>
+</div>
